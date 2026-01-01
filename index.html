@@ -1,0 +1,58 @@
+- <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Bella Massa - Faça seu pedido</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topo">
+  <h1>🍕 Bella Massa</h1>
+  <p>Faça seu pedido online</p>
+</header>
+
+<section class="cardapio">
+  <h2>Escolha sua Pizza</h2>
+
+  <div class="pizza">
+    <img src="https://images.unsplash.com/photo-1601924582975-7e6706b7e82d">
+    <h3>Calabresa</h3>
+    <p>R$ 45,00</p>
+    <button onclick="addPizza('Calabresa',45)">Selecionar</button>
+  </div>
+
+  <div class="pizza">
+    <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65">
+    <h3>Quatro Queijos</h3>
+    <p>R$ 48,00</p>
+    <button onclick="addPizza('Quatro Queijos',48)">Selecionar</button>
+  </div>
+
+  <div class="pizza">
+    <img src="https://images.unsplash.com/photo-1548365328-8b849e6d7c38">
+    <h3>Frango com Catupiry</h3>
+    <p>R$ 50,00</p>
+    <button onclick="addPizza('Frango com Catupiry',50)">Selecionar</button>
+  </div>
+</section>
+
+<section class="obs">
+  <h3>Observações</h3>
+  <textarea id="obs" placeholder="Ex: sem cebola, borda recheada..."></textarea>
+</section>
+
+<section class="localizacao">
+  <h3>📍 Localização</h3>
+  <button onclick="pegarLocalizacao()">Usar minha localização</button>
+  <p id="local"></p>
+</section>
+
+<section class="finalizar">
+  <button onclick="finalizarPedido()">🍕 Fazer pedido no WhatsApp</button>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

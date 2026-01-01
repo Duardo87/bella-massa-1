@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+.topo {
+  background: #c62828;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+.cardapio {
+  padding: 15px;
+}
+
+.cardapio h2 {
+  text-align: center;
+}
+
+.pizza {
+  background: white;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.pizza img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.pizza h3, .pizza p {
+  margin: 10px;
+}
+
+.pizza button {
+  width: 90%;
+  margin: 10px;
+  padding: 10px;
+  background: #ffb300;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.obs, .localizacao {
+  padding: 15px;
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+}
+
+.finalizar {
+  padding: 15px;
+}
+
+.finalizar button {
+  width: 100%;
+  padding: 15px;
+  background: #25d366;
+  color: white;
+  border: none;
+  font-size: 18px;
+  border-radius: 6px;
+}
