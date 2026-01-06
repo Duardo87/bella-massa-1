@@ -1,66 +1,57 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sua Pizzaria — Cardápio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bella Massa — Cardápio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<!-- Botão WhatsApp fixo -->
-<button onclick="sendToWhatsApp()" style="
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  border:none;
-  border-radius:50px;
-  padding:14px 20px;
-  font-size:16px;
-  font-weight:bold;
-  z-index:9999;
-">
-🟢 Pedir no WhatsApp
-</button>
-
-<header class="site-header">
-  <div class="brand">
-    <h1 id="pizzeria-name">Sua Pizzaria</h1>
-    <p id="pizzeria-phone">
-      <a href="#" id="tel-link">+55 11 99999-9999</a>
-    </p>
+<!-- PROMOÇÃO DO DIA -->
+<div id="promo-dia" class="overlay">
+  <div class="box">
+    <img id="promo-foto">
+    <h2 id="promo-titulo"></h2>
+    <p id="promo-texto"></p>
+    <p id="contador"></p>
+    <button onclick="aproveitarPromo()">Aproveitar oferta</button>
+    <button class="link" onclick="fecharPromo()">Talvez depois</button>
   </div>
+</div>
 
-  <nav class="header-actions">
-    <a href="admin.html" class="btn">Área do Admin</a>
-  </nav>
+<!-- RESUMO -->
+<div id="resumo" class="overlay" style="display:none">
+  <div class="box">
+    <h2>🧾 Resumo do Pedido</h2>
+    <div id="resumo-itens"></div>
+    <p id="resumo-total"></p>
+    <button onclick="confirmarPedido()">Confirmar no WhatsApp</button>
+    <button class="link" onclick="fecharResumo()">Voltar</button>
+  </div>
+</div>
+
+<header>
+  <div class="brand">
+    <img src="logo.png" class="logo" onerror="this.style.display='none'">
+    <div>
+      <h1>Bella Massa</h1>
+      <a href="tel:+5562993343622">📞 62 99334-3622</a>
+    </div>
+  </div>
 </header>
 
-<main class="container">
-  <aside class="sidebar">
-    <h3>Categorias</h3>
-    <ul id="categories-list" class="categories"></ul>
-  </aside>
+<main>
+  <h2>🔥 Combos Mais Pedidos</h2>
+  <div id="combos"></div>
 
-  <section class="main-content">
-    <div id="products-grid" class="products-grid"></div>
-
-    <section class="feedbacks">
-      <h3>Feedbacks</h3>
-      <div id="feedback-list" class="feedback-list"></div>
-    </section>
-  </section>
+  <h2>🍕 Cardápio</h2>
+  <div id="produtos"></div>
 </main>
 
-<script src="app.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    window.app.renderPublic();
-  });
-</script>
+<button class="whatsapp" onclick="abrirResumo()">🟢 Ver pedido</button>
 
+<script src="app.js"></script>
 </body>
 </html>
