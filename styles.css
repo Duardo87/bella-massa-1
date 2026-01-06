@@ -1,16 +1,75 @@
 :root{
   --bg:#fafafa;
-  --card:#ffffff;
-  --accent:#d64527;
-  --muted:#666;
-  --shadow: 0 6px 18px rgba(0,0,0,0.08);
-  --radius:8px;
+  --card:
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:#222;line-height:1.4}
-.container{display:flex;gap:20px;padding:20px;max-width:1200px;margin:20px auto}
+body{body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(180deg, #8b0000, #b31217, #f4f4f4);
+}
+
+.top {
+  background: #fff;
+  padding: 16px;
+}
+
+.categories button {
+  background: #b31217;
+  color: white;
+  border-radius: 20px;
+  padding: 8px 16px;
+  margin: 4px;
+}
+
+.products {
+  padding: 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+}
+
+.promo-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-box {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  width: 90%;
+  max-width: 360px;
+  text-align: center;
+}
+
+.promo-box img {
+  width: 100%;
+  border-radius: 12px;
+}}
 
 .site-header{
   display:flex;
@@ -31,7 +90,7 @@ body{margin:0;background:var(--bg);color:#222;line-height:1.4}
 
 .main-content{flex:1}
 .products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
-.product-card{background:var(--card);padding:12px;border-radius:8px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+.product-card{}
 .product-card img{width:100%;height:150px;object-fit:cover;border-radius:6px}
 .product-card .price{font-weight:600;color:var(--accent)}
 .product-card .actions{margin-top:auto;display:flex;gap:8px}
@@ -60,4 +119,127 @@ textarea{min-height:80px}
   .container{flex-direction:column;padding:12px}
   .sidebar{width:auto;order:2}
   .main-content{order:1}
+}/* COMBOS */
+.combos-premium h2 {
+  margin-bottom: 12px;
+}
+
+.combo-card {
+  background: linear-gradient(135deg, #b31217, #e52d27);
+  color: #fff;
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+}
+
+.combo-card button {
+  background: #25D366;
+  border: none;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+/* SELO MAIS PEDIDO */
+.selo {
+  background: #ffb703;
+  color: #000;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 6px;
+}/* PROMOÇÃO DO DIA */
+.promo-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.promo-box {
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 320px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.3);
+  animation: zoomIn .3s ease;
+}
+
+.promo-box h2 {
+  color: #b31217;
+  margin-bottom: 10px;
+}
+
+.promo-btn {
+  background: #25D366;
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 12px;
+  width: 100%;
+}
+
+.promo-fechar {
+  background: none;
+  border: none;
+  margin-top: 10px;
+  color: #777;
+  font-size: 14px;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}.promo-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.promo-box {
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 340px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .3);
+}
+
+.promo-box h2 {
+  color: #b31217;
+  margin-bottom: 10px;
+}
+
+.promo-btn {
+  background: #25D366;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.promo-fechar {
+  background: none;
+  border: none;
+  margin-top: 10px;
+  color: #777;
 }

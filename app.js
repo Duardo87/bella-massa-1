@@ -513,4 +513,59 @@ function sendToWhatsApp() {
   const phone = readData().phone.replace(/\D/g, '');
   const url = `https://wa.me/55${phone}?text=${getCartText()}`;
   window.open(url, "_blank");
+}const combos = [
+  {
+    name: "🍕 Combo Casal",
+    items: ["Pizza Grande", "Refrigerante 2L"],
+    price: 69.90
+  },
+  {
+    name: "🍕 Combo Família",
+    items: ["2 Pizzas Grandes", "Refrigerante 2L"],
+    price: 119.90
+  }
+];function addCombo(name, price) {
+  cart.push({ name, price });
+  alert(name + " adicionado!");
+}const ADICIONAIS = [
+  { nome: "Borda Recheada", preco: 5 },
+  { nome: "Extra Queijo", preco: 4 },
+  { nome: "Catupiry", preco: 4 }
+];
+
+function abrirAdicionais() {
+  let html = "<h3>Deseja adicionar algo?</h3>";
+  
+  ADICIONAIS.forEach(a => {
+    html += `
+      <label>
+        <input type="checkbox" 
+        onchange="toggleAdicional('${a.nome}', ${a.preco})">
+        ${a.nome} (+R$ ${a.preco})
+      </label><br/>
+    `;
+  });
+  
+  html += `<button onclick="finalizarPedido()" class="btn">Continuar</button>`;
+  abrirModal(html);
+}function fecharPromo() {
+  document.getElementById("promo-dia").style.display = "none";
+}
+
+function aproveitarPromo() {
+  const texto = `
+🔥 *PROMOÇÃO DO DIA* 🔥
+
+🍕 Pizza Grande (2 sabores)
+🥤 Refrigerante 1L
+💰 R$ 59,90
+
+Quero aproveitar!
+`;
+  
+  window.open(
+    "https://wa.me/5562993343622?text=" + encodeURIComponent(texto)
+  );
+  
+  fecharPromo();
 }

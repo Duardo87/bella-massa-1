@@ -21,7 +21,7 @@
       <h2>Login</h2>
       <label>
         Email
-        <input id="login-email" type="email" value="admin@pizzaria.local" />
+        <input id
       </label>
       <label>
         Senha
@@ -77,7 +77,7 @@
       <section class="card">
         <h2>Importar / Exportar</h2>
         <div class="form-inline">
-          <button id="export-json" class="btn">Exportar JSON</button>
+          <button id="export-json" class="btn"></button>
           <input id="import-file" type="file" accept="application/json" />
         </div>
       </section>
@@ -88,7 +88,7 @@
     </div>
   </main>
 
- 
+
 
   <script src="app.js"></script>
   <script>
@@ -97,5 +97,13 @@
       window.app.initAdmin();
     });
   </script>
-</body>
+</body><section class="card">
+  <h2>Promoção do Dia</h2>
+  
+  <input id="promo-title" placeholder="Título da promoção" />
+  <input id="promo-text" placeholder="Descrição da promoção" />
+  <input id="promo-photo" placeholder="URL da foto (imagem)" />
+  
+  <button onclick="salvarPromo()">Salvar promoção</button>
+</section>
 </html>

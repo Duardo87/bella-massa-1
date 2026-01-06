@@ -6,16 +6,55 @@
   <title>Sua Pizzaria — Cardápio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <header class="site-header">
-    <div class="brand">
-      <h1 id="pizzeria-name">Sua Pizzaria</h1>
-      <p id="pizzeria-phone"><a href="#" id="tel-link">+55 11 99999-9999</a></p>
+<button onclick="sendToWhatsApp()" style="
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+border:none;
+border-radius:50px;
+padding:14px 20px;
+font-size:16px;
+font-weight:bold;
+z-index:9999;
+">
+  🟢 Pedir no WhatsApp
+</button><!-- PROMOÇÃO DO DIA -->
+<div id="promo-dia" class="promo-overlay">
+  <div class="promo-box">
+    <h2 id="promo-titulo">🔥 Promoção do Dia</h2>
+    <p id="promo-texto"></p>
+    
+    <button onclick="aproveitarPromo()" class="promo-btn">
+      Aproveitar Oferta
+    </button>
+    
+    <button onclick="fecharPromo()" class="promo-fechar">
+      Talvez depois
+    </button>
+  </div>
+</div><body>
+
+    <!-- LOGO DA PIZZARIA -->
+    <!-- Troque logo.png pelo nome da sua imagem -->
+    <img 
+      src="logo.png" 
+      alt="Logo da Pizzaria" 
+      style="height:48px; width:auto;"
+      onerror="this.style.display='none'"
+    />
+    <div>
+      <h1 id="pizzeria-name">Bella Massa</h1>
+      <p id="pizzeria-phone">
+        <a href="tel:+5562993343622" id="tel-link">
+          +55 62 99334-3622
+        </a>
+      </p>
     </div>
-    <nav class="header-actions">
-      <a href="admin.html" class="btn">Área do Admin</a>
-    </nav>
-  </header>
+
+  </div>
+</header>
 
   <main class="container">
     <aside class="sidebar">
@@ -23,6 +62,9 @@
       <ul id="categories-list" class="categories"></ul>
     </aside>
 
+  <h2>🔥 Combos Mais Pedidos</h2>
+  <div id="combos-grid"></div>
+</section>
     <section class="main-content">
       <div id="products-grid" class="products-grid"></div>
 
@@ -34,12 +76,11 @@
   </main>
 
   <!-- Produto modal -->
-  <div id="product-modal" class="modal hidden">
-    <div class="modal-content">
-      <button class="modal-close" id="modal-close">&times;</button>
-      <div id="modal-body"></div>
-    </div>
-  </div>
+  
+<h4>Quer adicionar algo?</h4>
+<label><input type="checkbox" value="Borda recheada (+R$5)"> Borda recheada (+R$5)</label><br>
+<label><input type="checkbox" value="Extra queijo (+R$4)"> Extra queijo (+R$4)</label><br>
+<label><input type="checkbox" value="Molho especial (+R$3)"> Molho especial (+R$3)</label>
 
   <script src="app.js"></script>
   <script>
