@@ -2,55 +2,43 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Bella Massa — Cardápio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bella Massa | Cardápio</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<!-- PROMOÇÃO DO DIA -->
-<div id="promo-dia" class="overlay">
-  <div class="box">
-    <img id="promo-foto">
-    <h2 id="promo-titulo"></h2>
-    <p id="promo-texto"></p>
-    <p id="contador"></p>
-    <button onclick="aproveitarPromo()">Aproveitar oferta</button>
-    <button class="link" onclick="fecharPromo()">Talvez depois</button>
-  </div>
-</div>
-
-<!-- RESUMO -->
-<div id="resumo" class="overlay" style="display:none">
-  <div class="box">
-    <h2>🧾 Resumo do Pedido</h2>
-    <div id="resumo-itens"></div>
-    <p id="resumo-total"></p>
-    <button onclick="confirmarPedido()">Confirmar no WhatsApp</button>
-    <button class="link" onclick="fecharResumo()">Voltar</button>
-  </div>
-</div>
-
-<header>
-  <div class="brand">
-    <img src="logo.png" class="logo" onerror="this.style.display='none'">
-    <div>
-      <h1>Bella Massa</h1>
-      <a href="tel:+5562993343622">📞 62 99334-3622</a>
-    </div>
+<header class="top">
+  <div>
+    <h1 id="storeName">Bella Massa</h1>
+    <a id="storePhone" href="#">📞 62 99999-9999</a>
   </div>
 </header>
 
-<main>
-  <h2>🔥 Combos Mais Pedidos</h2>
-  <div id="combos"></div>
+<!-- PROMOÇÃO DO DIA -->
+<div id="promoModal" class="promo-modal">
+  <div class="promo-box">
+    <img id="promoImage" src="" alt="Promoção">
+    <h2 id="promoTitle">🔥 Promoção do Dia</h2>
+    <p id="promoDesc"></p>
+    <strong id="promoPrice"></strong>
 
-  <h2>🍕 Cardápio</h2>
-  <div id="produtos"></div>
-</main>
+    <div id="countdown"></div>
 
-<button class="whatsapp" onclick="abrirResumo()">🟢 Ver pedido</button>
+    <button onclick="acceptPromo()">Aproveitar</button>
+    <span onclick="closePromo()">Talvez depois</span>
+  </div>
+</div>
+
+<!-- CATEGORIAS -->
+<div id="categories" class="categories"></div>
+
+<!-- PRODUTOS -->
+<div id="products" class="products"></div>
+
+<!-- WHATSAPP -->
+<button class="whatsapp" onclick="sendWhats()">🟢 Pedir no WhatsApp</button>
 
 <script src="app.js"></script>
 </body>
