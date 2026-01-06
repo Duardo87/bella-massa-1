@@ -1,103 +1,79 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Admin • Bella Massa</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin • Bella Massa</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
-      background: #f5f5f5;
-      color: #222;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+  background: #f5f5f5;
+}
 
-    header {
-      background: #b11212;
-      color: #fff;
-      padding: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+header {
+  background: #b11212;
+  color: #fff;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    header a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      background: rgba(255,255,255,0.2);
-      padding: 8px 12px;
-      border-radius: 6px;
-    }
+header a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    .container {
-      padding: 16px;
-      max-width: 700px;
-      margin: auto;
-    }
+.container {
+  max-width: 760px;
+  margin: auto;
+  padding: 16px;
+}
 
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,.08);
-    }
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.1);
+}
 
-    h2 {
-      margin-top: 0;
-    }
+label {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+}
 
-    label {
-      display: block;
-      font-size: 14px;
-      margin-top: 12px;
-    }
+input, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-top: 4px;
+}
 
-    input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      margin-top: 4px;
-      font-size: 15px;
-    }
+button {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    button {
-      margin-top: 14px;
-      padding: 12px;
-      border-radius: 10px;
-      border: none;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.btn { background: #25d366; color: #fff; }
+.btn-red { background: #b11212; color: #fff; }
+.btn-outline {
+  background: #fff;
+  border: 2px solid #b11212;
+  color: #b11212;
+}
 
-    .btn {
-      background: #25d366;
-      color: #fff;
-    }
-
-    .btn-red {
-      background: #b11212;
-      color: #fff;
-    }
-
-    .btn-outline {
-      background: #fff;
-      border: 2px solid #b11212;
-      color: #b11212;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    small {
-      color: #666;
-    }
-  </style>
+.hidden { display: none; }
+</style>
 </head>
 
 <body>
@@ -109,150 +85,184 @@
 
 <div class="container">
 
-  <!-- LOGIN -->
-  <div id="login" class="card">
-    <h2>Login</h2>
+<!-- LOGIN -->
+<div id="login" class="card">
+  <h2>Login</h2>
+  <input id="email" value="admin@bellamassa.com">
+  <input id="pass" type="password" value="123456">
+  <button class="btn" onclick="login()">Entrar</button>
+</div>
 
-    <label>Email</label>
-    <input id="loginEmail" value="admin@bellamassa.com">
+<!-- ADMIN -->
+<div id="admin" class="hidden">
 
-    <label>Senha</label>
-    <input id="loginPass" type="password" value="123456">
+<!-- DADOS -->
+<div class="card">
+  <h2>🏪 Dados da Loja</h2>
+  <input id="storeName" placeholder="Nome da pizzaria">
+  <input id="storePhone" placeholder="WhatsApp">
+  <button class="btn-red" onclick="saveStore()">Salvar</button>
+</div>
 
-    <button class="btn" onclick="login()">Entrar</button>
+<!-- CATEGORIAS -->
+<div class="card">
+  <h2>🗂 Categorias</h2>
+  <input id="catName" placeholder="Nova categoria">
+  <button class="btn-outline" onclick="addCategory()">Adicionar</button>
+  <div id="catList"></div>
+</div>
 
-    <small>Login simples (local)</small>
-  </div>
+<!-- PRODUTOS -->
+<div class="card">
+  <h2>🍕 Produtos</h2>
 
-  <!-- ADMIN -->
-  <div id="admin" class="hidden">
+  <input id="prodName" placeholder="Nome do produto">
+  <input id="prodDesc" placeholder="Descrição">
+  <input id="prodPrice" placeholder="Preço">
+  <select id="prodCat"></select>
+  <input type="file" id="prodImage" accept="image/*">
 
-    <!-- DADOS -->
-    <div class="card">
-      <h2>🏪 Dados da Pizzaria</h2>
+  <label>
+    <input type="checkbox" id="prodBest"> ⭐ Mais pedido
+  </label>
 
-      <label>Nome</label>
-      <input id="storeName">
+  <button class="btn" onclick="addProduct()">Adicionar produto</button>
+  <div id="productList"></div>
+</div>
 
-      <label>Telefone (WhatsApp)</label>
-      <input id="storePhone">
+<!-- PROMO -->
+<div class="card">
+  <h2>🔥 Promoção do Dia</h2>
+  <input id="promoDesc" placeholder="Descrição">
+  <input id="promoPrice" placeholder="Preço">
+  <input type="file" id="promoImage" accept="image/*">
+  <input id="promoTime" placeholder="Duração (min)">
+  <button class="btn" onclick="savePromo()">Salvar promoção</button>
+</div>
 
-      <button class="btn-red" onclick="saveStore()">Salvar</button>
-    </div>
+<!-- BACKUP -->
+<div class="card">
+  <h2>📦 Backup</h2>
+  <button class="btn-outline" onclick="exportJSON()">Exportar JSON</button>
+  <input type="file" id="importFile" accept="application/json">
+  <button class="btn-outline" onclick="importJSON()">Importar JSON</button>
+</div>
 
-    <!-- PROMOÇÃO -->
-    <div class="card">
-      <h2>🔥 Promoção do Dia</h2>
+<button class="btn-red" onclick="logout()">Sair</button>
 
-      <label>Título</label>
-      <input id="promoTitle">
-
-      <label>Descrição</label>
-      <input id="promoDesc">
-
-      <label>Preço</label>
-      <input id="promoPrice">
-
-      <label>Imagem (URL)</label>
-      <input id="promoImage">
-
-      <label>Duração (minutos)</label>
-      <input id="promoTime">
-
-      <button class="btn" onclick="savePromo()">Salvar promoção</button>
-    </div>
-
-    <!-- COMBOS -->
-    <div class="card">
-      <h2>📦 Combos Inteligentes</h2>
-
-      <button class="btn-outline" onclick="addCombo('Individual')">+ Combo Individual</button>
-      <button class="btn-outline" onclick="addCombo('Casal')">+ Combo Casal</button>
-      <button class="btn-outline" onclick="addCombo('Família')">+ Combo Família</button>
-    </div>
-
-    <!-- JSON -->
-    <div class="card">
-      <h2>📤 Backup</h2>
-
-      <button class="btn-outline" onclick="exportJSON()">Exportar JSON</button>
-      <input type="file" onchange="importJSON(event)">
-    </div>
-
-    <button class="btn-red" onclick="logout()">Sair</button>
-  </div>
+</div>
 </div>
 
 <script>
-  const DB = () => JSON.parse(localStorage.getItem("pizzaria") || "{}");
-  const SAVE = (d) => localStorage.setItem("pizzaria", JSON.stringify(d));
+const KEY = "pizzaria-data";
+const DB = () => JSON.parse(localStorage.getItem(KEY) || "{}");
+const SAVE = d => localStorage.setItem(KEY, JSON.stringify(d));
 
-  function login() {
-    document.getElementById("login").classList.add("hidden");
-    document.getElementById("admin").classList.remove("hidden");
-    load();
-  }
+function login(){
+  loginDiv.classList.add("hidden");
+  admin.classList.remove("hidden");
+  load();
+}
 
-  function logout() {
-    location.reload();
-  }
+function logout(){ location.reload(); }
 
-  function load() {
-    const d = DB();
-    storeName.value = d.name || "";
-    storePhone.value = d.phone || "";
+function load(){
+  const d = DB();
+  storeName.value = d.store?.name || "";
+  storePhone.value = d.store?.phone || "";
+  renderCategories();
+  renderProducts();
+}
 
-    promoTitle.value = d.promo?.title || "";
-    promoDesc.value = d.promo?.desc || "";
-    promoPrice.value = d.promo?.price || "";
-    promoImage.value = d.promo?.image || "";
-    promoTime.value = d.promo?.time || "";
-  }
+function saveStore(){
+  const d = DB();
+  d.store = { name: storeName.value, phone: storePhone.value };
+  SAVE(d);
+  alert("Dados salvos");
+}
 
-  function saveStore() {
-    const d = DB();
-    d.name = storeName.value;
-    d.phone = storePhone.value;
+function addCategory(){
+  const d = DB();
+  d.categories = d.categories || [];
+  d.categories.push(catName.value);
+  SAVE(d);
+  catName.value="";
+  renderCategories();
+}
+
+function renderCategories(){
+  const d = DB();
+  catList.innerHTML="";
+  prodCat.innerHTML="";
+  (d.categories||[]).forEach(c=>{
+    catList.innerHTML+=`<p>${c}</p>`;
+    prodCat.innerHTML+=`<option>${c}</option>`;
+  });
+}
+
+function addProduct(){
+  const d = DB();
+  d.products = d.products || [];
+  const reader = new FileReader();
+  reader.onload=()=>{
+    d.products.push({
+      id:Date.now(),
+      name:prodName.value,
+      desc:prodDesc.value,
+      price:parseFloat(prodPrice.value),
+      category:prodCat.value,
+      image:reader.result,
+      best:prodBest.checked
+    });
     SAVE(d);
-    alert("Dados salvos");
-  }
+    renderProducts();
+  };
+  reader.readAsDataURL(prodImage.files[0]);
+}
 
-  function savePromo() {
-    const d = DB();
-    d.promo = {
-      title: promoTitle.value,
-      desc: promoDesc.value,
-      price: promoPrice.value,
-      image: promoImage.value,
-      time: promoTime.value,
-      start: Date.now()
+function renderProducts(){
+  const d = DB();
+  productList.innerHTML="";
+  (d.products||[]).forEach(p=>{
+    productList.innerHTML+=`<p>${p.name} - R$ ${p.price}</p>`;
+  });
+}
+
+function savePromo(){
+  const d = DB();
+  const reader = new FileReader();
+  reader.onload=()=>{
+    d.promo={
+      active:true,
+      description:promoDesc.value,
+      price:parseFloat(promoPrice.value),
+      image:reader.result,
+      minutes:parseInt(promoTime.value),
+      start:Date.now()
     };
     SAVE(d);
-    alert("Promoção salva");
-  }
+    alert("Promo salva");
+  };
+  reader.readAsDataURL(promoImage.files[0]);
+}
 
-  function addCombo(tipo) {
-    const d = DB();
-    d.combos = d.combos || [];
-    d.combos.push({ tipo, date: Date.now() });
-    SAVE(d);
-    alert("Combo " + tipo + " criado");
-  }
+function exportJSON(){
+  const blob=new Blob([JSON.stringify(DB(),null,2)],{type:"application/json"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="backup.json";
+  a.click();
+}
 
-  function exportJSON() {
-    const blob = new Blob([JSON.stringify(DB(), null, 2)], { type: "application/json" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "backup-pizzaria.json";
-    a.click();
-  }
+function importJSON(){
+  const f=importFile.files[0];
+  const r=new FileReader();
+  r.onload=()=>{localStorage.setItem(KEY,r.result);location.reload();}
+  r.readAsText(f);
+}
 
-  function importJSON(e) {
-    const r = new FileReader();
-    r.onload = () => SAVE(JSON.parse(r.result));
-    r.readAsText(e.target.files[0]);
-    alert("JSON importado");
-  }
+const loginDiv=document.getElementById("login");
+const admin=document.getElementById("admin");
 </script>
 
 </body>

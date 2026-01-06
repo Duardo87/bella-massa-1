@@ -1,93 +1,81 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sua Pizzaria — Cardápio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <title>Bella Massa • Cardápio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<button onclick="sendToWhatsApp()" style="
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-border:none;
-border-radius:50px;
-padding:14px 20px;
-font-size:16px;
-font-weight:bold;
-z-index:9999;
-">
-  🟢 Pedir no WhatsApp
-</button><!-- PROMOÇÃO DO DIA -->
-<div id="promo-dia" class="promo-overlay">
-  <div class="promo-box">
-    <h2 id="promo-titulo">🔥 Promoção do Dia</h2>
-    <p id="promo-texto"></p>
-    
-    <button onclick="aproveitarPromo()" class="promo-btn">
-      Aproveitar Oferta
-    </button>
-    
-    <button onclick="fecharPromo()" class="promo-fechar">
-      Talvez depois
-    </button>
-  </div>
-</div><body>
 
-    <!-- LOGO DA PIZZARIA -->
-    <!-- Troque logo.png pelo nome da sua imagem -->
-    <img 
-      src="logo.png" 
-      alt="Logo da Pizzaria" 
-      style="height:48px; width:auto;"
-      onerror="this.style.display='none'"
-    />
-    <div>
-      <h1 id="pizzeria-name">Bella Massa</h1>
-      <p id="pizzeria-phone">
-        <a href="tel:+5562993343622" id="tel-link">
-          +55 62 99334-3622
-        </a>
-      </p>
-    </div>
+<body>
 
+<!-- HEADER -->
+<header class="site-header">
+  <div>
+    <h1 id="store-name">Bella Massa</h1>
+    <a id="store-phone" href="#" target="_blank">📞 Pedir no WhatsApp</a>
   </div>
 </header>
 
-  <main class="container">
-    <aside class="sidebar">
-      <h3>Categorias</h3>
-      <ul id="categories-list" class="categories"></ul>
-    </aside>
+<!-- PROMOÇÃO DO DIA (JS CONTROLA) -->
+<div class="promo-overlay hidden" id="promo-overlay">
+  <div class="promo-card">
+    <img id="promo-image" alt="Promoção do dia">
+    <h2 id="promo-title"></h2>
+    <p id="promo-desc"></p>
+    <strong id="promo-price"></strong>
+    <div id="promo-timer"></div>
 
-  <h2>🔥 Combos Mais Pedidos</h2>
-  <div id="combos-grid"></div>
-</section>
-    <section class="main-content">
-      <div id="products-grid" class="products-grid"></div>
+    <button class="btn btn-green" onclick="acceptPromo()">
+      Aproveitar agora
+    </button>
+    <button class="btn btn-ghost" onclick="closePromo()">
+      Talvez depois
+    </button>
+  </div>
+</div>
 
-      <section class="feedbacks">
-        <h3>Feedbacks</h3>
-        <div id="feedback-list" class="feedback-list"></div>
-      </section>
-    </section>
-  </main>
+<!-- CATEGORIAS AUTOMÁTICAS -->
+<nav class="categories" id="categories"></nav>
 
-  <!-- Produto modal -->
-  
-<h4>Quer adicionar algo?</h4>
-<label><input type="checkbox" value="Borda recheada (+R$5)"> Borda recheada (+R$5)</label><br>
-<label><input type="checkbox" value="Extra queijo (+R$4)"> Extra queijo (+R$4)</label><br>
-<label><input type="checkbox" value="Molho especial (+R$3)"> Molho especial (+R$3)</label>
+<!-- CARDÁPIO -->
+<main class="products-grid" id="products"></main>
 
-  <script src="app.js"></script>
-  <script>
-    // Renderiza a vista pública ao carregar
-    document.addEventListener('DOMContentLoaded', () => {
+<!-- CARRINHO / RESUMO ESTILO iFOOD -->
+<div class="cart hidden" id="cart">
+  <h3>🧾 Seu pedido</h3>
+
+  <div id="cart-items"></div>
+
+  <!-- COMBO INTELIGENTE -->
+  <div id="cart-combo" style="margin:8px 0;font-size:14px"></div>
+
+  <strong id="cart-total"></strong>
+
+  <button class="btn btn-green" onclick="sendToWhatsApp()">
+    Enviar pedido no WhatsApp
+  </button>
+</div>
+
+<!-- BOTÃO FLUTUANTE -->
+<button class="whats-float" onclick="toggleCart()">
+  🟢 Ver pedido
+</button>
+
+<script src="app.js"></script>
+<script>
+  // Inicialização segura
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.app?.renderPublic) {
       window.app.renderPublic();
-    });
-  </script>
+    }
+  });
+
+  // Abrir / fechar carrinho (UX iFood)
+  function toggleCart() {
+    document.getElementById("cart").classList.toggle("hidden");
+  }
+</script>
+
 </body>
 </html>
