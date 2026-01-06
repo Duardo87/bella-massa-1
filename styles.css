@@ -17,7 +17,14 @@ body {
   margin: 4px;
 }
 
-.products {
+.products {.badge {
+  background: gold;
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  display: inline-block;
+}
   padding: 16px;
 }
 
@@ -62,4 +69,41 @@ body {
 .promo-box img {
   width: 100%;
   border-radius: 12px;
+}
+.promo-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.promo-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  width: 90%;
+  max-width: 360px;
+  text-align: center;
+}
+
+.promo-card img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+#promo-timer {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #d32f2f;
+}const adicionais = [
+  { nome: "Borda recheada", preco: 7 },
+  { nome: "Extra queijo", preco: 6 },
+  { nome: "Refrigerante lata", preco: 5 }
+];function sugerirCombo(total) {
+  if (total < 40) return "🔥 Combo Individual";
+  if (total < 70) return "🔥 Combo Casal";
+  return "🔥 Combo Família";
 }

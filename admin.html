@@ -1,6 +1,17 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
+<head><div id="promo-overlay" class="promo-overlay hidden">
+  <div class="promo-card">
+    <img id="promo-img" />
+    <h2 id="promo-title"></h2>
+    <p id="promo-desc"></p>
+    <strong id="promo-price"></strong>
+    <div id="promo-timer"></div>
+
+    <button class="btn green" onclick="aceitarPromo()">🔥 Aproveitar</button>
+    <button class="btn ghost" onclick="fecharPromo()">Talvez depois</button>
+  </div>
+</div>
   <meta charset="utf-8">
   <title>| Bella Massa</title>
   <link rel="stylesheet" href="styles.css">
