@@ -1,6 +1,17 @@
 <!doctype html>
 <html lang="pt-BR">
-<head><link rel="manifest" href="manifest.json">
+<head><div id="promo-overlay" class="promo-overlay hidden">
+  <div class="promo-card">
+    <img id="promo-img" />
+    <h2 id="promo-title"></h2>
+    <p id="promo-desc"></p>
+    <strong id="promo-price"></strong>
+    <div id="promo-timer"></div>
+
+    <button class="btn green" onclick="aceitarPromo()">🔥 Aproveitar</button>
+    <button class="btn ghost" onclick="fecharPromo()">Talvez depois</button>
+  </div>
+</div>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bella Massa | Cardápio</title>
@@ -42,4 +53,13 @@
 
 <script src="app.js"></script>
 </body>
-</html>
+</html><section class="card">
+  <h2>📦 Backup / Exportação</h2>
+
+  <button class="btn" onclick="exportarJSON()">📤 Exportar JSON</button>
+
+  <br><br>
+
+  <input type="file" id="import-json" accept="application/json" />
+  <button class="btn ghost" onclick="importarJSON()">📥 Importar JSON</button>
+</section>
