@@ -1,58 +1,66 @@
-- <!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Bella Massa - Faça seu pedido</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sua Pizzaria — Cardápio</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body><button onclick="sendToWhatsApp()" style="
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+border:none;
+border-radius:50px;
+padding:14px 20px;
+font-size:16px;
+font-weight:bold;
+z-index:9999;
+">
+🟢 Pedir no WhatsApp
+</button>
+  <header class="site-header">
+    <div class="brand">
+      <h1 id="pizzeria-name">Sua Pizzaria</h1>
+      <p id="pizzeria-phone"><a href="#" id="tel-link">+55 11 99999-9999</a></p>
+    </div>
+    <nav class="header-actions">
+      <a href="admin.html" class="btn">Área do Admin</a>
+    </nav>
+  </header>
 
-<header class="topo">
-  <h1>🍕 Bella Massa</h1>
-  <p>Faça seu pedido online</p>
-</header>
+  <main class="container">
+    <aside class="sidebar">
+      <h3>Categorias</h3>
+      <ul id="categories-list" class="categories"></ul>
+    </aside>
 
-<section class="cardapio">
-  <h2>Escolha sua Pizza</h2>
+    <section class="main-content">
+      <div id="products-grid" class="products-grid"></div>
 
-  <div class="pizza">
-    <img src="https://images.unsplash.com/photo-1601924582975-7e6706b7e82d">
-    <h3>Calabresa</h3>
-    <p>R$ 45,00</p>
-    <button onclick="addPizza('Calabresa',45)">Selecionar</button>
+      <section class="feedbacks">
+        <h3>Feedbacks</h3>
+        <div id="feedback-list" class="feedback-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <!-- Produto modal -->
+  <div id="product-modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div id="modal-body"></div>
+    </div>
   </div>
 
-  <div class="pizza">
-    <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65">
-    <h3>Quatro Queijos</h3>
-    <p>R$ 48,00</p>
-    <button onclick="addPizza('Quatro Queijos',48)">Selecionar</button>
-  </div>
-
-  <div class="pizza">
-    <img src="https://images.unsplash.com/photo-1548365328-8b849e6d7c38">
-    <h3>Frango com Catupiry</h3>
-    <p>R$ 50,00</p>
-    <button onclick="addPizza('Frango com Catupiry',50)">Selecionar</button>
-  </div>
-</section>
-
-<section class="obs">
-  <h3>Observações</h3>
-  <textarea id="obs" placeholder="Ex: sem cebola, borda recheada..."></textarea>
-</section>
-
-<section class="localizacao">
-  <h3>📍 Localização</h3>
-  <button onclick="pegarLocalizacao()">Usar minha localização</button>
-  <p id="local"></p>
-</section>
-
-<section class="finalizar">
-  <button onclick="finalizarPedido()">🍕 Fazer pedido no WhatsApp</button>
-</section>
-
-<script src="script.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // Renderiza a vista pública ao carregar
+    document.addEventListener('DOMContentLoaded', () => {
+      window.app.renderPublic();
+    });
+  </script>
 </body>
 </html>
