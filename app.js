@@ -469,4 +469,246 @@ function sendToWhatsApp(){
   const phone = readData().phone.replace(/\D/g,'');
   const url = `https://wa.me/55${phone}?text=${getCartText()}`;
   window.open(url, "_blank");
+}{
+  "name": "Sua Pizzaria",
+  "phone": "+55 11 99999-9999",
+  "categories": [
+    { "id": "cat-1", "name": "🔥 Destaques / Combos" },
+    { "id": "cat-2", "name": "🍕 Tradicionais" },
+    { "id": "cat-3", "name": "⭐ Especiais" },
+    { "id": "cat-4", "name": "🍟 Porções & Acompanhamentos" },
+    { "id": "cat-5", "name": "🥤 Bebidas" },
+    { "id": "cat-6", "name": "🍫 Sobremesas" }
+  ],
+  "products": [
+    {
+      "id": "p-101",
+      "categoryId": "cat-1",
+      "name": "🔥 Combo Individual — Margherita + Coca 350ml",
+      "price": 43.15,
+      "image": "",
+      "description": "Pizza Margherita média + Coca-Cola 350ml. Rápido e econômico.",
+      "available": true
+    },
+    {
+      "id": "p-102",
+      "categoryId": "cat-1",
+      "name": "🔥 Combo Casal — 2 Médias + Coca 2L",
+      "price": 78.03,
+      "image": "",
+      "description": "2 pizzas médias (Margherita + Calabresa) + Coca-Cola 2L.",
+      "available": true
+    },
+    {
+      "id": "p-103",
+      "categoryId": "cat-1",
+      "name": "🔥 Combo Família — 2 Grandes + 2x Coca 2L + Fritas",
+      "price": 153.18,
+      "image": "",
+      "description": "Ideal para 3 a 4 pessoas. Economia garantida.",
+      "available": true
+    },
+    {
+      "id": "p-104",
+      "categoryId": "cat-1",
+      "name": "🔥 Combo Festa — 4 Grandes + Bebidas + Sobremesas",
+      "price": 279.71,
+      "image": "",
+      "description": "Perfeito para reuniões e pequenas festas.",
+      "available": true
+    },
+    {
+      "id": "p-105",
+      "categoryId": "cat-1",
+      "name": "🔥 Combo Econômico — 1 Grande + 2 Coca 350ml",
+      "price": 65.61,
+      "image": "",
+      "description": "Custo benefício para 1 ou 2 pessoas.",
+      "available": true
+    },
+
+    {
+      "id": "p-201",
+      "categoryId": "cat-2",
+      "name": "⭐ Margherita — Média",
+      "price": 39.90,
+      "image": "",
+      "description": "Molho de tomate, muçarela e manjericão.",
+      "available": true
+    },
+    {
+      "id": "p-202",
+      "categoryId": "cat-2",
+      "name": "Margherita — Grande",
+      "price": 59.90,
+      "image": "",
+      "description": "Molho de tomate, muçarela e manjericão.",
+      "available": true
+    },
+    {
+      "id": "p-203",
+      "categoryId": "cat-2",
+      "name": "⭐ Calabresa — Média",
+      "price": 39.90,
+      "image": "",
+      "description": "Calabresa fatiada, cebola e orégano.",
+      "available": true
+    },
+    {
+      "id": "p-204",
+      "categoryId": "cat-2",
+      "name": "Calabresa — Grande",
+      "price": 59.90,
+      "image": "",
+      "description": "Calabresa fatiada, cebola e orégano.",
+      "available": true
+    },
+
+    {
+      "id": "p-301",
+      "categoryId": "cat-3",
+      "name": "4 Queijos — Média",
+      "price": 49.90,
+      "image": "",
+      "description": "Muçarela, parmesão, gorgonzola e catupiry.",
+      "available": true
+    },
+    {
+      "id": "p-302",
+      "categoryId": "cat-3",
+      "name": "4 Queijos — Grande",
+      "price": 74.90,
+      "image": "",
+      "description": "Muçarela, parmesão, gorgonzola e catupiry.",
+      "available": true
+    },
+    {
+      "id": "p-303",
+      "categoryId": "cat-3",
+      "name": "Pepperoni — Média",
+      "price": 44.90,
+      "image": "",
+      "description": "Pepperoni fatiado com queijo derretido.",
+      "available": true
+    },
+    {
+      "id": "p-304",
+      "categoryId": "cat-3",
+      "name": "Pepperoni — Grande",
+      "price": 69.90,
+      "image": "",
+      "description": "Pepperoni fatiado com queijo derretido.",
+      "available": true
+    },
+    {
+      "id": "p-305",
+      "categoryId": "cat-3",
+      "name": "Frango com Catupiry — Média",
+      "price": 44.90,
+      "image": "",
+      "description": "Frango desfiado e catupiry cremoso.",
+      "available": true
+    },
+    {
+      "id": "p-306",
+      "categoryId": "cat-3",
+      "name": "Frango com Catupiry — Grande",
+      "price": 69.90,
+      "image": "",
+      "description": "Frango desfiado e catupiry cremoso.",
+      "available": true
+    },
+
+    {
+      "id": "p-401",
+      "categoryId": "cat-4",
+      "name": "Fritas (porção)",
+      "price": 18.00,
+      "image": "",
+      "description": "Batata frita crocante.",
+      "available": true
+    },
+    {
+      "id": "p-402",
+      "categoryId": "cat-4",
+      "name": "Onion Rings",
+      "price": 22.00,
+      "image": "",
+      "description": "Anéis de cebola empanados.",
+      "available": true
+    },
+    {
+      "id": "p-403",
+      "categoryId": "cat-4",
+      "name": "Chicken Wings (6 un.)",
+      "price": 26.00,
+      "image": "",
+      "description": "Asinhas temperadas.",
+      "available": true
+    },
+
+    {
+      "id": "p-501",
+      "categoryId": "cat-5",
+      "name": "Coca-Cola 350ml",
+      "price": 6.50,
+      "image": "",
+      "description": "Refrigerante gelado.",
+      "available": true
+    },
+    {
+      "id": "p-502",
+      "categoryId": "cat-5",
+      "name": "Coca-Cola 2L",
+      "price": 12.00,
+      "image": "",
+      "description": "Ideal para compartilhar.",
+      "available": true
+    },
+    {
+      "id": "p-503",
+      "categoryId": "cat-5",
+      "name": "Suco Natural 300ml",
+      "price": 8.50,
+      "image": "",
+      "description": "Suco da fruta do dia.",
+      "available": true
+    },
+    {
+      "id": "p-504",
+      "categoryId": "cat-5",
+      "name": "Água Mineral 500ml",
+      "price": 4.50,
+      "image": "",
+      "description": "Água sem gás.",
+      "available": true
+    },
+
+    {
+      "id": "p-601",
+      "categoryId": "cat-6",
+      "name": "Pudim (fatia)",
+      "price": 14.00,
+      "image": "",
+      "description": "Pudim caseiro cremoso.",
+      "available": true
+    },
+    {
+      "id": "p-602",
+      "categoryId": "cat-6",
+      "name": "Brownie",
+      "price": 16.00,
+      "image": "",
+      "description": "Brownie de chocolate.",
+      "available": true
+    }
+  ],
+  "feedbacks": [
+    {
+      "id": "f-1",
+      "name": "Carlos",
+      "text": "Pizza maravilhosa e entrega super rápida!",
+      "date": "2025-01-05"
+    }
+  ]
 }
