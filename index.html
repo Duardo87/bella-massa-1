@@ -1,65 +1,52 @@
 <!doctype html>
 <html lang="pt-BR">
-<head><div id="promo-overlay" class="promo-overlay hidden">
-  <div class="promo-card">
-    <img id="promo-img" />
-    <h2 id="promo-title"></h2>
-    <p id="promo-desc"></p>
-    <strong id="promo-price"></strong>
-    <div id="promo-timer"></div>
-
-    <button class="btn green" onclick="aceitarPromo()">🔥 Aproveitar</button>
-    <button class="btn ghost" onclick="fecharPromo()">Talvez depois</button>
-  </div>
-</div>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bella Massa | Cardápio</title>
-  <link rel="stylesheet" href="styles.css">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sua Pizzaria — Cardápio</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="brand">
+      <h1 id="pizzeria-name">Sua Pizzaria</h1>
+      <p id="pizzeria-phone"><a href="#" id="tel-link">+55 11 99999-9999</a></p>
+    </div>
+    <nav class="header-actions">
+      <a href="admin.html" class="btn">Área do Admin</a>
+    </nav>
+  </header>
 
-<header class="top">
-  <div>
-    <h1 id="storeName">Bella Massa</h1>
-    <a id="storePhone" href="#">📞 62 99999-9999</a>
+  <main class="container">
+    <aside class="sidebar">
+      <h3>Categorias</h3>
+      <ul id="categories-list" class="categories"></ul>
+    </aside>
+
+    <section class="main-content">
+      <div id="products-grid" class="products-grid"></div>
+
+      <section class="feedbacks">
+        <h3>Feedbacks</h3>
+        <div id="feedback-list" class="feedback-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <!-- Produto modal -->
+  <div id="product-modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div id="modal-body"></div>
+    </div>
   </div>
-</header>
 
-<!-- PROMOÇÃO DO DIA -->
-<div id="promoModal" class="promo-modal">
-  <div class="promo-box">
-    <img id="promoImage" src="" alt="Promoção">
-    <h2 id="promoTitle">🔥 Promoção do Dia</h2>
-    <p id="promoDesc"></p>
-    <strong id="promoPrice"></strong>
-
-    <div id="countdown"></div>
-
-    <button onclick="acceptPromo()">Aproveitar</button>
-    <span onclick="closePromo()">Talvez depois</span>
-  </div>
-</div>
-
-<!-- CATEGORIAS -->
-<div id="categories" class="categories"></div>
-
-<!-- PRODUTOS -->
-<div id="products" class="products"></div>
-
-<!-- WHATSAPP -->
-<button class="whatsapp" onclick="sendWhats()">🟢 Pedir no WhatsApp</button>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // Renderiza a vista pública ao carregar
+    document.addEventListener('DOMContentLoaded', () => {
+      window.app.renderPublic();
+    });
+  </script>
 </body>
-</html><section class="card">
-  <h2>📦 Backup / Exportação</h2>
-
-  <button class="btn" onclick="exportarJSON()">📤 Exportar JSON</button>
-
-  <br><br>
-
-  <input type="file" id="import-json" accept="application/json" />
-  <button class="btn ghost" onclick="importarJSON()">📥 Importar JSON</button>
-</section>
+</html>
