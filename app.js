@@ -110,7 +110,8 @@
       actions.className = 'actions';
       const btnView = document.createElement('button');
       btnView.className = 'btn';
-      btnView.textContent = 'Ver';
+      btnView.textContent = 'Adicionar';
+btnView.onclick = () => addToCart(p);
       btnView.addEventListener('click', () => openProductModal(p));
       actions.appendChild(btnView);
 
@@ -439,4 +440,33 @@
     readData,
     saveData
   };
-})();
+})();// =========================
+// PEDIDO + WHATSAPP
+// =========================
+let cart = [];
+
+function addToCart(product){
+  cart.push(product);
+  alert(product.name + " adicionado ao pedido");
+}
+
+function getCartText(){
+  let total = 0;
+  let text = "🍕 *Pedido - " + readData().name + "*\n\n";
+  cart.forEach((p, i) => {
+    total += p.price;
+    text += `${i+1}. ${p.name} — R$ ${p.price.toFixed(2)}\n`;
+  });
+  text += `\n💰 *Total:* R$ ${total.toFixed(2)}\n\n📍 Endereço:\n📞 Telefone:`;
+  return encodeURIComponent(text);
+}
+
+function sendToWhatsApp(){
+  if(cart.length === 0){
+    alert("Seu pedido está vazio");
+    return;
+  }
+  const phone = readData().phone.replace(/\D/g,'');
+  const url = `https://wa.me/55${phone}?text=${getCartText()}`;
+  window.open(url, "_blank");
+}
