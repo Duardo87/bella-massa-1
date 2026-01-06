@@ -7,248 +7,122 @@
   const STORAGE_KEY = 'pizzaria_data_v1';
 
   const DEFAULT = {
-  "name": "Sua Pizzaria",
+    name: "Sua Pizzaria",
+    phone: "+55 11 99999-9999",
+    categories: [
+      { id: 'cat-1', name: 'Tradicionais' },
+      { id: 'cat-2', name: 'Especiais' },
+      { id: 'cat-3', name: 'Bebidas' }
+    ],
+    products: [{
+  "name": "Pizzaria do Bairro",
   "phone": "+55 11 99999-9999",
   "categories": [
-    { "id": "cat-1", "name": "🔥 Destaques / Combos" },
-    { "id": "cat-2", "name": "🍕 Tradicionais" },
-    { "id": "cat-3", "name": "⭐ Especiais" },
-    { "id": "cat-4", "name": "🍟 Porções & Acompanhamentos" },
-    { "id": "cat-5", "name": "🥤 Bebidas" },
-    { "id": "cat-6", "name": "🍫 Sobremesas" }
+    { "id": "cat-1", "name": "Destaques / Combos" },
+    { "id": "cat-2", "name": "Tradicionais" },
+    { "id": "cat-3", "name": "Especiais" },
+    { "id": "cat-4", "name": "Porções & Acompanhamentos" },
+    { "id": "cat-5", "name": "Bebidas" },
+    { "id": "cat-6", "name": "Sobremesas" }
   ],
   "products": [
-    {
-      "id": "p-101",
-      "categoryId": "cat-1",
-      "name": "🔥 Combo Individual — Margherita + Coca 350ml",
-      "price": 43.15,
-      "image": "",
-      "description": "Pizza Margherita média + Coca-Cola 350ml. Rápido e econômico.",
-      "available": true
-    },
-    {
-      "id": "p-102",
-      "categoryId": "cat-1",
-      "name": "🔥 Combo Casal — 2 Médias + Coca 2L",
-      "price": 78.03,
-      "image": "",
-      "description": "2 pizzas médias (Margherita + Calabresa) + Coca-Cola 2L.",
-      "available": true
-    },
-    {
-      "id": "p-103",
-      "categoryId": "cat-1",
-      "name": "🔥 Combo Família — 2 Grandes + 2x Coca 2L + Fritas",
-      "price": 153.18,
-      "image": "",
-      "description": "Ideal para 3 a 4 pessoas. Economia garantida.",
-      "available": true
-    },
-    {
-      "id": "p-104",
-      "categoryId": "cat-1",
-      "name": "🔥 Combo Festa — 4 Grandes + Bebidas + Sobremesas",
-      "price": 279.71,
-      "image": "",
-      "description": "Perfeito para reuniões e pequenas festas.",
-      "available": true
-    },
-    {
-      "id": "p-105",
-      "categoryId": "cat-1",
-      "name": "🔥 Combo Econômico — 1 Grande + 2 Coca 350ml",
-      "price": 65.61,
-      "image": "",
-      "description": "Custo benefício para 1 ou 2 pessoas.",
-      "available": true
-    },
-
-    {
-      "id": "p-201",
-      "categoryId": "cat-2",
-      "name": "⭐ Margherita — Média",
-      "price": 39.90,
-      "image": "",
-      "description": "Molho de tomate, muçarela e manjericão.",
-      "available": true
-    },
-    {
-      "id": "p-202",
-      "categoryId": "cat-2",
-      "name": "Margherita — Grande",
-      "price": 59.90,
-      "image": "",
-      "description": "Molho de tomate, muçarela e manjericão.",
-      "available": true
-    },
-    {
-      "id": "p-203",
-      "categoryId": "cat-2",
-      "name": "⭐ Calabresa — Média",
-      "price": 39.90,
-      "image": "",
-      "description": "Calabresa fatiada, cebola e orégano.",
-      "available": true
-    },
-    {
-      "id": "p-204",
-      "categoryId": "cat-2",
-      "name": "Calabresa — Grande",
-      "price": 59.90,
-      "image": "",
-      "description": "Calabresa fatiada, cebola e orégano.",
-      "available": true
-    },
-
-    {
-      "id": "p-301",
-      "categoryId": "cat-3",
-      "name": "4 Queijos — Média",
-      "price": 49.90,
-      "image": "",
-      "description": "Muçarela, parmesão, gorgonzola e catupiry.",
-      "available": true
-    },
-    {
-      "id": "p-302",
-      "categoryId": "cat-3",
-      "name": "4 Queijos — Grande",
-      "price": 74.90,
-      "image": "",
-      "description": "Muçarela, parmesão, gorgonzola e catupiry.",
-      "available": true
-    },
-    {
-      "id": "p-303",
-      "categoryId": "cat-3",
-      "name": "Pepperoni — Média",
-      "price": 44.90,
-      "image": "",
-      "description": "Pepperoni fatiado com queijo derretido.",
-      "available": true
-    },
-    {
-      "id": "p-304",
-      "categoryId": "cat-3",
-      "name": "Pepperoni — Grande",
-      "price": 69.90,
-      "image": "",
-      "description": "Pepperoni fatiado com queijo derretido.",
-      "available": true
-    },
-    {
-      "id": "p-305",
-      "categoryId": "cat-3",
-      "name": "Frango com Catupiry — Média",
-      "price": 44.90,
-      "image": "",
-      "description": "Frango desfiado e catupiry cremoso.",
-      "available": true
-    },
-    {
-      "id": "p-306",
-      "categoryId": "cat-3",
-      "name": "Frango com Catupiry — Grande",
-      "price": 69.90,
-      "image": "",
-      "description": "Frango desfiado e catupiry cremoso.",
-      "available": true
-    },
-
-    {
-      "id": "p-401",
-      "categoryId": "cat-4",
-      "name": "Fritas (porção)",
-      "price": 18.00,
-      "image": "",
-      "description": "Batata frita crocante.",
-      "available": true
-    },
-    {
-      "id": "p-402",
-      "categoryId": "cat-4",
-      "name": "Onion Rings",
-      "price": 22.00,
-      "image": "",
-      "description": "Anéis de cebola empanados.",
-      "available": true
-    },
-    {
-      "id": "p-403",
-      "categoryId": "cat-4",
-      "name": "Chicken Wings (6 un.)",
-      "price": 26.00,
-      "image": "",
-      "description": "Asinhas temperadas.",
-      "available": true
-    },
-
-    {
-      "id": "p-501",
-      "categoryId": "cat-5",
-      "name": "Coca-Cola 350ml",
-      "price": 6.50,
-      "image": "",
-      "description": "Refrigerante gelado.",
-      "available": true
-    },
-    {
-      "id": "p-502",
-      "categoryId": "cat-5",
-      "name": "Coca-Cola 2L",
-      "price": 12.00,
-      "image": "",
-      "description": "Ideal para compartilhar.",
-      "available": true
-    },
-    {
-      "id": "p-503",
-      "categoryId": "cat-5",
-      "name": "Suco Natural 300ml",
-      "price": 8.50,
-      "image": "",
-      "description": "Suco da fruta do dia.",
-      "available": true
-    },
-    {
-      "id": "p-504",
-      "categoryId": "cat-5",
-      "name": "Água Mineral 500ml",
-      "price": 4.50,
-      "image": "",
-      "description": "Água sem gás.",
-      "available": true
-    },
-
-    {
-      "id": "p-601",
-      "categoryId": "cat-6",
-      "name": "Pudim (fatia)",
-      "price": 14.00,
-      "image": "",
-      "description": "Pudim caseiro cremoso.",
-      "available": true
-    },
-    {
-      "id": "p-602",
-      "categoryId": "cat-6",
-      "name": "Brownie",
-      "price": 16.00,
-      "image": "",
-      "description": "Brownie de chocolate.",
-      "available": true
-    }
+    { "id": "p-101", "categoryId": "cat-1", "name": "Individual Rápido — Margherita (M) + Coca 350ml", "price": 43.15, "image": "", "description": "Combo individual: Margherita média + Coca 350ml. Rápido e prático.", "available": true },
+    { "id": "p-102", "categoryId": "cat-1", "name": "Combo Casal — 2 Médias + Coca 2L", "price": 78.03, "image": "", "description": "2 pizzas médias (sugestão: Margherita + Calabresa) + Coca 2L. Ótimo para dois.", "available": true },
+    { "id": "p-103", "categoryId": "cat-1", "name": "Combo Família — 2 Grandes + 2x Coca 2L + Fritas", "price": 153.18, "image": "", "description": "Perfeito para a família (3–4 pessoas). Economize comprando o combo.", "available": true },
+    { "id": "p-104", "categoryId": "cat-1", "name": "Combo Festa — 4 Grandes + 6x Coca350 + Sobremesas", "price": 279.71, "image": "", "description": "Pacote festa com 4 pizzas grandes, bebidas e sobremesas.", "available": true },
+    { "id": "p-105", "categoryId": "cat-1", "name": "Combo Econômico — 1 Grande + 2x Coca350", "price": 65.61, "image": "", "description": "Opção econômica para 1-2 pessoas.", "available": true },
+    
+    { "id": "p-201", "categoryId": "cat-2", "name": "Margherita — Média", "price": 39.90, "image": "", "description": "Molho de tomate, muçarela e manjericão.", "available": true },
+    { "id": "p-202", "categoryId": "cat-2", "name": "Margherita — Grande", "price": 59.90, "image": "", "description": "Molho de tomate, muçarela e manjericão.", "available": true },
+    { "id": "p-203", "categoryId": "cat-2", "name": "Calabresa — Média", "price": 39.90, "image": "", "description": "Calabresa fatiada, cebola e orégano.", "available": true },
+    { "id": "p-204", "categoryId": "cat-2", "name": "Calabresa — Grande", "price": 59.90, "image": "", "description": "Calabresa fatiada, cebola e orégano.", "available": true },
+    
+    { "id": "p-301", "categoryId": "cat-3", "name": "4 Queijos — Média", "price": 49.90, "image": "", "description": "Muçarela, parmesão, gorgonzola e catupiry.", "available": true },
+    { "id": "p-302", "categoryId": "cat-3", "name": "4 Queijos — Grande", "price": 74.90, "image": "", "description": "Muçarela, parmesão, gorgonzola e catupiry.", "available": true },
+    { "id": "p-303", "categoryId": "cat-3", "name": "Pepperoni — Média", "price": 44.90, "image": "", "description": "Fatias de pepperoni e muito sabor.", "available": true },
+    { "id": "p-304", "categoryId": "cat-3", "name": "Pepperoni — Grande", "price": 69.90, "image": "", "description": "Fatias de pepperoni e muito sabor.", "available": true },
+    { "id": "p-305", "categoryId": "cat-3", "name": "Frango com Catupiry — Média", "price": 44.90, "image": "", "description": "Frango desfiado e catupiry cremoso.", "available": true },
+    { "id": "p-306", "categoryId": "cat-3", "name": "Frango com Catupiry — Grande", "price": 69.90, "image": "", "description": "Frango desfiado e catupiry cremoso.", "available": true },
+    { "id": "p-307", "categoryId": "cat-3", "name": "Vegetariana — Média", "price": 38.90, "image": "", "description": "Legumes grelhados, queijo e molho especial.", "available": true },
+    { "id": "p-308", "categoryId": "cat-3", "name": "Vegetariana — Grande", "price": 58.90, "image": "", "description": "Legumes grelhados, queijo e molho especial.", "available": true },
+    { "id": "p-309", "categoryId": "cat-3", "name": "Bacon Supreme — Média", "price": 49.90, "image": "", "description": "Bacon crocante e queijo extra.", "available": true },
+    { "id": "p-310", "categoryId": "cat-3", "name": "Bacon Supreme — Grande", "price": 74.90, "image": "", "description": "Bacon crocante e queijo extra.", "available": true },
+    
+    { "id": "p-401", "categoryId": "cat-4", "name": "Fritas (porção)", "price": 18.00, "image": "", "description": "Porção de batata frita crocante.", "available": true },
+    { "id": "p-402", "categoryId": "cat-4", "name": "Onion Rings (porção)", "price": 22.00, "image": "", "description": "Anéis de cebola crocantes.", "available": true },
+    { "id": "p-403", "categoryId": "cat-4", "name": "Chicken Wings (6 uni.)", "price": 26.00, "image": "", "description": "Asinhas temperadas e assadas.", "available": true },
+    
+    { "id": "p-501", "categoryId": "cat-5", "name": "Coca-Cola 350ml", "price": 6.50, "image": "", "description": "Refrigerante gelado.", "available": true },
+    { "id": "p-502", "categoryId": "cat-5", "name": "Coca-Cola 2L", "price": 12.00, "image": "", "description": "Bebida para compartilhar.", "available": true },
+    { "id": "p-503", "categoryId": "cat-5", "name": "Suco Natural 300ml", "price": 8.50, "image": "", "description": "Suco natural da estação.", "available": true },
+    { "id": "p-504", "categoryId": "cat-5", "name": "Água 500ml", "price": 4.50, "image": "", "description": "Água mineral.", "available": true },
+    
+    { "id": "p-601", "categoryId": "cat-6", "name": "Pudim (fatia)", "price": 14.00, "image": "", "description": "Pudim cremoso caseiro.", "available": true },
+    { "id": "p-602", "categoryId": "cat-6", "name": "Brownie (un)", "price": 16.00, "image": "", "description": "Brownie com pedaços de chocolate.", "available": true }
   ],
   "feedbacks": [
-    {
-      "id": "f-1",
-      "name": "Carlos",
-      "text": "Pizza maravilhosa e entrega super rápida!",
-      "date": "2025-01-05"
-    }
+    { "id": "f-1", "name": "João", "text": "Entrega rápida e pizza deliciosa!", "date": "2025-11-08" }
   ]
-}
+}],
+    feedbacks: [
+      { id: 'f-1', name: 'João', text: 'Entrega rápida e pizza deliciosa!', date: new Date().toISOString().slice(0,10) }
+    ]
+  };
+
+  function readData(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT));
+        return JSON.parse(JSON.stringify(DEFAULT));
+      }
+      return JSON.parse(raw);
+    }catch(e){
+      console.error('Erro lendo dados', e);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT));
+      return JSON.parse(JSON.stringify(DEFAULT));
+    }
+  }
+
+  function saveData(data){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+
+  function newId(prefix='id'){ return prefix + '-' + Date.now() + '-' + Math.floor(Math.random()*9000) }
+
+  // ---------- Render público ----------
+  function renderPublic(){
+    const data = readData();
+    // header
+    const nameEl = document.getElementById('pizzeria-name');
+    const phoneEl = document.getElementById('pizzeria-phone');
+    const telLink = document.getElementById('tel-link');
+    if(nameEl) nameEl.textContent = data.name || 'Sua Pizzaria';
+    if(telLink){
+      telLink.textContent = data.phone || '';
+      telLink.href = 'tel:' + (data.phone || '').replace(/\s/g,'');
+    }
+
+    // categories
+    const categoriesList = document.getElementById('categories-list');
+    if(categoriesList){
+      categoriesList.innerHTML = '';
+      data.categories.forEach((c, idx) => {
+        const li = document.createElement('li');
+        li.textContent = c.name;
+        li.dataset.id = c.id;
+        if(idx === 0) li.classList.add('active');
+        li.addEventListener('click', () => {
+          document.querySelectorAll('#categories-list li').forEach(n => n.classList.remove('active'));
+          li.classList.add('active');
+          renderProducts(c.id);
+        });
+        categoriesList.appendChild(li);
+      });
+      // render primeira categoria
+      if(data.categories.length) renderProducts(data.categories[0].id);
+    }
+
     // feedbacks
     renderFeedbacks();
   }
@@ -281,8 +155,7 @@
       actions.className = 'actions';
       const btnView = document.createElement('button');
       btnView.className = 'btn';
-      btnView.textContent = 'Adicionar';
-btnView.onclick = () => addToCart(p);
+      btnView.textContent = 'adiciona';
       btnView.addEventListener('click', () => openProductModal(p));
       actions.appendChild(btnView);
 
@@ -616,12 +489,12 @@ btnView.onclick = () => addToCart(p);
 // =========================
 let cart = [];
 
-function addToCart(product){
+function addToCart(product) {
   cart.push(product);
   alert(product.name + " adicionado ao pedido");
 }
 
-function getCartText(){
+function getCartText() {
   let total = 0;
   let text = "🍕 *Pedido - " + readData().name + "*\n\n";
   cart.forEach((p, i) => {
@@ -632,12 +505,12 @@ function getCartText(){
   return encodeURIComponent(text);
 }
 
-function sendToWhatsApp(){
-  if(cart.length === 0){
+function sendToWhatsApp() {
+  if (cart.length === 0) {
     alert("Seu pedido está vazio");
     return;
   }
-  const phone = readData().phone.replace(/\D/g,'');
+  const phone = readData().phone.replace(/\D/g, '');
   const url = `https://wa.me/55${phone}?text=${getCartText()}`;
   window.open(url, "_blank");
 }
