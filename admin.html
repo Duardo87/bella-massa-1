@@ -2,11 +2,27 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Admin | Bella Massa</title>
+  <title>| Bella Massa</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="admin">
+<body class=const ADMIN_EMAIL = "admin@bellamassa.com";
+const ADMIN_SENHA = "123456";
+
+function loginAdmin() {
+  const email = document.getElementById("login-email").value;
+  const senha = document.getElementById("login-pass").value;
+
+  if (email === ADMIN_EMAIL && senha === ADMIN_SENHA) {
+    localStorage.setItem("adminLogado", "true");
+    document.getElementById("login-panel").style.display = "none";
+    document.getElementById("admin-panel").classList.remove("hidden");
+  } else {
+    alert("❌ Email ou senha incorretos");
+  }
+}
+
+document.getElementById("btn-login")?.addEventListener("click", loginAdmin);
 
 <h2>🔐 Admin - Bella Massa</h2>
 
